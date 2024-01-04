@@ -7,10 +7,6 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
-      appBar: AppBar(
-        title: const Text('Criar conta'),
-      ),
       body: Column(
         children: [
           Expanded(
@@ -31,16 +27,42 @@ class SignInScreen extends StatelessWidget {
                 ),
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  CustomTextField(
+                  const CustomTextField(
                     label: 'E-mail',
                     icon: Icons.email,
                     inputType: TextInputType.emailAddress,
                   ),
-                  CustomTextField(
+                  const CustomTextField(
                     label: 'Senha',
                     icon: Icons.lock,
                     isSecret: true,
+                  ),
+                  SizedBox(
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        'Entrar',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Esqueceu a senha?',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    ),
                   ),
                 ],
               ),
