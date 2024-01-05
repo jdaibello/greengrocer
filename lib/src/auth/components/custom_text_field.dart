@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextField extends StatefulWidget {
   final String label;
   final IconData icon;
   final TextInputType inputType;
+  final List<TextInputFormatter>? inputFormatters;
   final bool isSecret;
 
   const CustomTextField({
@@ -12,6 +14,7 @@ class CustomTextField extends StatefulWidget {
     required this.icon,
     this.isSecret = false,
     this.inputType = TextInputType.text,
+    this.inputFormatters,
   });
 
   @override
@@ -33,6 +36,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: TextFormField(
+        inputFormatters: widget.inputFormatters,
         obscureText: isObscure,
         keyboardType: widget.inputType,
         decoration: InputDecoration(
